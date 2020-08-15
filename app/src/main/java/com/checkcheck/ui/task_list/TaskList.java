@@ -51,6 +51,7 @@ public class TaskList extends Fragment implements add_dialog.AddDialogListener, 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         Calendar endDate = Calendar.getInstance();
         endDate.add(Calendar.MONTH, 1);
         Calendar startDate = Calendar.getInstance();
@@ -80,7 +81,9 @@ public class TaskList extends Fragment implements add_dialog.AddDialogListener, 
                 a.show(getActivity().getSupportFragmentManager(),"example");
             }
         });
-       try {
+
+
+        try {
            horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
                @Override
                public void onDateSelected(Date date, int position) {
