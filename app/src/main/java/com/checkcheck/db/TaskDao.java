@@ -15,26 +15,17 @@ import com.checkcheck.model.Task;
 import java.util.Date;
 import java.util.List;
 
-import io.reactivex.Completable;
-
 
 @Dao
 public interface TaskDao {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long addTask(Task task);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    Object addTasks(List<Task> task);
-
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateTask(Task task);
-    @Update(onConflict = OnConflictStrategy.REPLACE)
-    Completable updateTasks(List<Task> task);
 
     @Query("select * from task_data")
     LiveData<List<Task>> getTasks();
-
 
     @Query("select * from task_data where deadline like '%' || :deadline || '%'")
     @TypeConverters({DateTypeConverter.class})
@@ -43,7 +34,4 @@ public interface TaskDao {
     @Query("select * from task_data where deadline > '%' || :yesterday || '%' AND deadline < '%' || :tomorrow || '%'")
 
     LiveData<List<Task>> getTaskDate(long yesterday,long tomorrow);
-
-
-
 }

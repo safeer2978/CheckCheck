@@ -1,9 +1,8 @@
 package com.checkcheck.repository;
 
 import android.app.Application;
-import android.app.ListActivity;
+
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -11,7 +10,7 @@ import androidx.lifecycle.LiveData;
 import com.checkcheck.db.TaskDao;
 import com.checkcheck.db.TaskDatabase;
 import com.checkcheck.model.DateTypeConverter;
-import com.checkcheck.model.SubTask;
+
 import com.checkcheck.model.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,10 +24,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import io.reactivex.Completable;
-
-//import static StartActivity.mAuth;
-//import static StartActivity.user;
 
 public class TaskRepository {
 
@@ -101,9 +96,6 @@ public class TaskRepository {
         return taskDao.getTasks(date);
     }
 
-    public Completable updateTasks(List<Task> tasks){
-        return taskDao.updateTasks(tasks);
-    }
 
     public void updateTask(Task task) {
         if(flag_fire)
