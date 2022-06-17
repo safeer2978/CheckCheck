@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -70,5 +70,6 @@ dependencies {
     implementation 'devs.mulham.horizontalcalendar:horizontalcalendar:1.1.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 
+    implementation 'com.airbnb.android:lottie:5.2.0'
 
 }
